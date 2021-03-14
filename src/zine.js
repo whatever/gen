@@ -23,6 +23,24 @@ export class Zine {
     }
 
     setup() {
+        const loader = new THREE.FontLoader();
+
+        let message = null;
+
+        loader.load("helvetiker.json", (font) => {
+            let geo = new THREE.TextGeometry("page = " + this.page, {
+                font: font,
+                size: 1,
+                height: 0.001,
+                bevelThickness: 0.1,
+                bevelSize: 0.1,
+            });
+            let mat = new THREE.MeshBasicMaterial({color: 0x000000});
+            this.meshage = new THREE.Mesh(geo, mat);
+            this.meshage.position.set(0, -4, 0);
+            this.scene.add(this.meshage);
+        });
+
         this.mesh = new THREE.Mesh(
             new THREE.OctahedronGeometry(3.0),
             new THREE.MeshBasicMaterial({color: 0x000000, wireframe: true}),
