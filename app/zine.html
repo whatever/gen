@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>(wip.af) i'm not really thinking about it</title>
+    <style>
+    #you-know {
+      top: 0;
+      left: 0;
+      background-color: rgb(255, 68, 112);
+      width: 100%;
+      height: 100%;
+    }
+
+    #dont-watch-me-watch-tv {
+      font-size: 58pt;
+      font-family: sans-serif;
+      font-style: italic;
+      letter-spacing: -0.05em;
+      color: white;
+      display: block;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      height: 100px;
+      width: 400px;
+      margin-top: -50px;
+      margin-left: -200px;
+      text-shadow: 1px 0px 0px rgba(0, 0, 0, 1);
+    }
+
+    #dont-touch-me {
+      position: absolute;
+      display: block;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+    #best {
+      z-index:10;
+      position: absolute;
+      color: white;
+      bottom: 1em;
+      right: 1em;
+      font-size: 30pt;
+      display: inline-block;
+      line-height: 1.4em;
+      font-family: sans-serif;
+      padding: 0.25em 0.40em;
+      letter-spacing: -0.1em;
+      text-transform: lowercase;
+      font-style: italic;
+    }
+    #okok {
+      z-index:10;
+      position: absolute;
+      color: white;
+      bottom: 1em;
+      left: 1em;
+      display: inline-block;
+      background-color: rgb(255, 68, 112);
+      line-height: 1.4em;
+      font-family: sans-serif;
+      padding: 0.25em 0.40em;
+      letter-spacing: 0.125em;
+    }
+
+    .page {
+      border: solid 1px black;
+      -webkit-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.44); 
+      box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.44);
+      background: rgb(49, 120, 252);
+    }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/91/three.min.js"></script>
+
+    <script src="/svv.im.bundled.min.js"></script>
+    <script src="dat.gui.min.js"></script>
+    <script src="/stats.min.js"></script>
+  </head>
+  <body>
+    <div id="stats"></div>
+    <div id="you-know">
+    <div id="best">yeah for sure</div>
+    <!-- <div id="dont-watch-me-watch-tv">maybe it'll be less complex next time</div> -->
+
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+    <canvas width="198" height="306" class="page""></canvas>
+
+    <script>
+
+    function datGui() {
+
+      params = {
+        theta: 0.01,
+        rayleigh: 4.0,
+        turbidity: 4.9,
+        mieDirectionalG: 0.01,
+        mieCoefficient: 0.01,
+        luminance: 1.02,
+
+        theta: Math.PI,
+        color: "#202824",
+        emissive: "#000000",
+        specular: "#18163C",
+        shininess: 1.6,
+        reflectivity: 0,
+        "y": 17,
+        zapYa: 0.1,
+
+        // World positions
+        "theta": 0.001,
+        "fi": 0.001,
+
+        // ...
+        "time": 0.5,
+
+      };
+
+      var gui = new dat.GUI({load: JSON});
+      gui.remember(params);
+
+      return params;
+    }
+
+    window.addEventListener('load', function (ev) {
+
+      var els = document.getElementsByClassName("page");
+      var zines = [];
+
+      Array.from(els).forEach(function (el, i) {
+        var seed = 91029341;
+        var zine = new svv.Zine({el: el, page: i, seed: seed});
+        zine.setup();
+
+        zines.push(zine);
+      });
+
+      (function loloop() {
+        zines.forEach(function (zine) {
+          zine.update();
+          zine.draw();
+        });
+        requestAnimationFrame(loloop);
+      }());
+
+
+      // var params = datGui();
+      
+      /*
+      app.setup();
+      app.update(params);
+      app.draw();
+
+      var stats = new Stats();
+      document.getElementById("stats").appendChild(stats.dom);
+
+      (function loloop() {
+        requestAnimationFrame(loloop);
+        stats.begin();
+        app.update(params);
+        app.draw();
+        stats.end();
+      }());
+
+
+      (function cant_stop_wont_stop() {
+        let handles = app.eventHandlers();
+        window.addEventListener('resize', handles.resize);
+        window.addEventListener('mousemove', handles.move);
+      }());
+      */
+    });
+
+    function update() {
+    }
+
+    </script>
+  </body>
+</html>

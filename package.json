@@ -1,0 +1,37 @@
+{
+  "name": "@internet-research-labs/svv.im",
+  "version": "4.2.0",
+  "description": "and those that rushes my clutches get put on crutches - get smoked like dutches.",
+  "main": "src/index.js",
+  "scripts": {
+    "ayyy": "webpack --mode production",
+    "livest": "node ./node_modules/webpack/bin/webpack.js --watch --progresswebpack",
+    "lmao": "webpack serve --config webpack.config.js --static app --open --mode development --host localhost --hot",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whatever/business.grass.git"
+  },
+  "keywords": [
+    "grass"
+  ],
+  "author": "Matt Owen",
+  "license": "MIT",
+  "homepage": "http://grass.business",
+  "devDependencies": {
+    "@babel/core": "^7.1.6",
+    "@babel/preset-env": "^7.1.6",
+    "babel-loader": "^8.0.4",
+    "webpack": "^5.21.2",
+    "webpack-cli": "^4.5.0",
+    "webpack-dev-server": "^4.0.0-beta.0",
+    "webpack-glsl-loader": "^1.0.1"
+  },
+  "dependencies": {
+    "@pool-water/math": "0.0.1",
+    "@whatever420/skv": "0.0.420",
+    "npm": "^6.4.0",
+    "simplex-noise": "^2.4.0"
+  }
+}
