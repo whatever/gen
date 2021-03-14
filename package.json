@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/whatever/business.grass.git"
+    "url": "git+https://github.com/whatever/gen.git"
   },
   "keywords": [
     "grass"

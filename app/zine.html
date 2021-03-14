@@ -87,6 +87,12 @@
     <pre>^^ Sample image</pre>
     <br>
 
+    <!-- <form action="http://localhost:8081/pdf" method="POST"><input type="submit"></input></form> -->
+    <form id="poster"></form>
+    <input type="button" value="generate" id="generator">
+
+    <br>
+
     <canvas width="198" height="306" class="page""></canvas>
     <canvas width="198" height="306" class="page""></canvas>
     <canvas width="198" height="306" class="page""></canvas>
@@ -164,6 +170,23 @@
         });
         requestAnimationFrame(loloop);
       }());
+
+      document.getElementById("generator").addEventListener("click", function (ev) {
+        var form = document.getElementById("poster");
+        form.innerHTML = "";
+        form.action = "http://localhost:8081/pdf";
+        form.method = "post";
+
+        zines.forEach(function (zine, i) {
+          var el = document.createElement("INPUT");
+          el.type = "hidden";
+          el.name = "page-" + (i+1);
+          el.value = zine.toDataURL();
+          form.appendChild(el);
+        });
+
+        form.submit();
+      });
 
 
       // var params = datGui();

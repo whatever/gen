@@ -68,7 +68,7 @@ export class Zine {
         this.renderer.render(this.scene, this.camera);
     }
 
-    toDataUrl() {
+    toDataURL() {
         return this.el.toDataURL('image/png');
     }
 
