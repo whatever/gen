@@ -151,9 +151,7 @@
         zine.setup();
 
         el.addEventListener("click", function (ev) {
-          var z = zine;
-          var place = document.getElementById("put-here");
-          place.src = el.toDataURL();
+          window.location.href = el.toDataURL();
         });
 
         zines.push(zine);

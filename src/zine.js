@@ -72,6 +72,13 @@ export class Zine {
         return this.el.toDataURL('image/png');
     }
 
+    getImageData() {
+        let gl = this.ctx;
+        let pixels = new Uint8Array(gl.drawingBufferWidth * gl.drawingBufferHeight * 4);
+        gl.readPixels(0, 0, gl.drawingBufferWidth, gl.drawingBufferHeight, gl.RGBA, gl.UNSIGNED_BYTE, pixels);
+        console.log(pixels);
+    }
+
     eventHandlers() {
         return {};
     }
