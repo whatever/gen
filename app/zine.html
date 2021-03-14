@@ -83,6 +83,10 @@
     <div id="best">yeah for sure</div>
     <!-- <div id="dont-watch-me-watch-tv">maybe it'll be less complex next time</div> -->
 
+    <img id="put-here">
+    <pre>^^ Sample image</pre>
+    <br>
+
     <canvas width="198" height="306" class="page""></canvas>
     <canvas width="198" height="306" class="page""></canvas>
     <canvas width="198" height="306" class="page""></canvas>
@@ -145,6 +149,12 @@
         var seed = 91029341;
         var zine = new svv.Zine({el: el, page: i+1, seed: seed});
         zine.setup();
+
+        el.addEventListener("click", function (ev) {
+          var z = zine;
+          var place = document.getElementById("put-here");
+          place.src = el.toDataURL();
+        });
 
         zines.push(zine);
       });

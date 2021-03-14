@@ -4,12 +4,13 @@ export class Zine {
         this.el = el;
         this.page = page;
 
-        this.ctx = el.getContext("webgl");
+        this.ctx = el.getContext("webgl", {preserveDrawingBuffer: true});
         this.scene = new THREE.Scene();
 
         this.renderer = new THREE.WebGLRenderer({
             canvas: el,
             antialias: true,
+            preserveDrawingBuffer: true,
         });
         this.renderer.setSize(2*el.width, 2*el.height);
         this.renderer.setClearColor("#FFFFFF");
@@ -65,6 +66,10 @@ export class Zine {
 
     draw() {
         this.renderer.render(this.scene, this.camera);
+    }
+
+    toDataUrl() {
+        return this.el.toDataURL('image/png');
     }
 
     eventHandlers() {
