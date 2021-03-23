@@ -3,6 +3,12 @@
   <head>
     <title>(wip.af) i'm not really thinking about it</title>
     <style>
+
+    html, body {
+      font-family: sans-serif;
+      background-color: rgb(255, 68, 112);
+    }
+
     #you-know {
       top: 0;
       left: 0;
@@ -37,8 +43,8 @@
     }
     #best {
       z-index:10;
-      position: absolute;
-      color: white;
+      position: fixed;
+      color: black;
       bottom: 1em;
       right: 1em;
       font-size: 30pt;
@@ -66,8 +72,7 @@
 
     .page {
       border: solid 1px black;
-      -webkit-box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.44); 
-      box-shadow: 0px 4px 15px 5px rgba(0,0,0,0.44);
+      box-shadow: 7px 4px 7px 5px rgba(0,0,0,0.44);
       background: rgb(49, 120, 252);
     }
     </style>
@@ -79,36 +84,36 @@
   </head>
   <body>
     <div id="stats"></div>
-    <div id="you-know">
+    <!-- <div id="you-know"> -->
     <div id="best">yeah for sure</div>
     <!-- <div id="dont-watch-me-watch-tv">maybe it'll be less complex next time</div> -->
 
-    <img id="put-here">
-    <pre>^^ Sample image</pre>
+    <h1>Click here</h1>
+    <input name="seed" value="0xACE">
+    <input type="checkbox" id="better-off-alone"><label for="better-off-alone">Better off alone</label>
+    <input type="checkbox" id="folding"><label for="folding">Folding Instructions</label>
     <br>
-
-    <!-- <form action="http://localhost:8081/pdf" method="POST"><input type="submit"></input></form> -->
-    <form id="poster"></form>
     <input type="button" value="generate" id="generator">
 
     <br>
 
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
-    <canvas width="198" height="306" class="page""></canvas>
+    <h1>Preview</h1>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="198" height="306" class="page"></canvas>
 
     <script>
 
@@ -146,7 +151,19 @@
       return params;
     }
 
-    window.addEventListener('load', function (ev) {
+    window.addEventListener("load", function (ev) {
+      var loader = new THREE.FontLoader();
+      loader.load("helvetiker.json", function (font) {
+        var els = Array.from(document.getElementsByClassName("page"));
+        var composition = new svv.ZineComposition({elements: els, font: font});
+
+        composition.setup();
+        composition.update();
+        composition.draw();
+      });
+    });
+
+    window.addEventListener('load2', function (ev) {
 
       var els = document.getElementsByClassName("page");
       var zines = [];
