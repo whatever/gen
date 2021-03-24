@@ -1,3 +1,4 @@
+import {basic3} from "../basics.js";
 export class Zine {
 
   constructor({el, page, font}) {
@@ -5,17 +6,9 @@ export class Zine {
     this.font = font;
     this.el = el;
     this.page = page;
+    [this.ctx, this.renderer] = basic3(el);
 
-    this.ctx = el.getContext("webgl", {preserveDrawingBuffer: true});
     this.scene = new THREE.Scene();
-
-    this.renderer = new THREE.WebGLRenderer({
-      canvas: el,
-      antialias: true,
-      preserveDrawingBuffer: true,
-    });
-    this.renderer.setSize(2*el.width, 2*el.height);
-    this.renderer.setClearColor("#FFFFFF");
 
     this.camera = new THREE.PerspectiveCamera(
       75,

@@ -6,7 +6,7 @@ export function basic3(el) {
     antialias: true,
     preserveDrawingBuffer: true,
   });
-  renderer.setSize(2*el.width, 2*el.height);
+  renderer.setSize(el.width, el.height);
   renderer.setClearColor("#FFFFFF");
   return [ctx, renderer];
 }

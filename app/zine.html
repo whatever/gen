@@ -91,31 +91,32 @@
     <!-- <div id="dont-watch-me-watch-tv">maybe it'll be less complex next time</div> -->
 
     <h1>Click here</h1>
-    <input name="seed" value="0xACE">
+    <input type="button" value="preview" id="previewer">
+    <input id="seed" name="seed" value="0xACE">
     <input type="checkbox" id="better-off-alone"><label for="better-off-alone">Better off alone</label>
     <input type="checkbox" id="folding"><label for="folding">Folding Instructions</label>
-    <br>
+    <br><br>
     <input type="button" value="generate" id="generator">
 
     <br>
 
     <h1>Preview</h1>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
-    <canvas width="198" height="306" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="page"></canvas>
 
     <script>
 
@@ -153,17 +154,26 @@
       return params;
     }
 
+    document.getElementById("previewer").addEventListener("click", function (ev) {
+      let seed = document.getElementById("seed").value;
+      preview(seed);
+    });
+
+
     window.addEventListener("load", function (ev) {
+      preview(0xACE);
+    });
+
+    function preview(seed) {
       var loader = new THREE.FontLoader();
       loader.load("helvetiker.json", function (font) {
         var els = Array.from(document.getElementsByClassName("page"));
         var composition = new svv.ZineComposition({elements: els, font: font});
-
         composition.setup();
         composition.update();
         composition.draw();
       });
-    });
+    }
 
     window.addEventListener('load2', function (ev) {
 
