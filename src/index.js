@@ -1,5 +1,7 @@
-/**
- * Bellin' down the mother fucking street dog
- */
-import {ZineComposition, Zine} from './zine.js';
-export {ZineComposition, Zine};
+// Bellin' down the mother fucking street dog
+
+import {ZineComposition} from './composition.js';
+
+export {
+  ZineComposition,
+};
