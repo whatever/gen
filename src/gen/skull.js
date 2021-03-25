@@ -49,8 +49,8 @@ export class Skull {
 function lattice(num) {
   let points = [];
 
-  for (let i=-10; i < 20; i++) {
-    for (let j=-60; j < 25; j++) {
+  for (let i=-10; i < 10; i++) {
+    for (let j=-10; j < 15; j++) {
       let x = 6.0*(i-10.0);
       let y = 3.0*(j-17.0);
       points.push([

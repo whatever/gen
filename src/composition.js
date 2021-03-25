@@ -1,6 +1,7 @@
 import {Zine} from "./gen/zine.js";
 import {Skull} from "./gen/skull.js";
 import {Waves} from "./gen/waves.js";
+import {Eyes} from "./gen/eyes.js";
 
 /**
  * ZineComposition
@@ -26,9 +27,11 @@ export class ZineComposition {
     for (var i=0; i < 16; i++) {
       if (i == 1) {
         this.maps[i] = Skull;
+      } else if (i == 2) {
+        this.maps[i] = Eyes;
       } else if (i == 3) {
         this.maps[i] = Waves;
-      }else {
+      } else {
         this.maps[i] = Zine;
       }
     }

@@ -1,5 +1,8 @@
 import {basic3} from "../basics.js";
 
+import vert from "../shaders/pass.vert";
+import frag from "../shaders/pass.frag";
+
 /**
  * Waves
  *
@@ -17,12 +20,29 @@ export class Waves {
       0.1,
       1000,
     );
+
+    this.material = new THREE.RawShaderMaterial({
+      vertexShader: vert,
+      fragmentShader: frag,
+    });
+
+    this.mesh = new THREE.Mesh(
+      new THREE.BoxGeometry(),
+      this.material,
+    )
+
+    this.scene.add(this.mesh);
   }
 
   setup() {
   }
 
   update() {
+    this.camera.position.x = 5;
+    this.camera.position.y = 5;
+    this.camera.position.z = 5;
+    this.camera.lookAt(0, 0, 0);
+    this.mesh.position.set(0, 0, 0);
   }
 
   draw() {
