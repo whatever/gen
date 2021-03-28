@@ -2,6 +2,9 @@ import {Zine} from "./gen/zine.js";
 import {Skull} from "./gen/skull.js";
 import {Waves} from "./gen/waves.js";
 import {Eyes} from "./gen/eyes.js";
+import {Text} from "./gen/text.js";
+import {Starry} from "./gen/starry.js";
+import {Merces} from "./gen/merces.js";
 
 /**
  * ZineComposition
@@ -25,13 +28,32 @@ export class ZineComposition {
     this.maps = [];
 
     for (var i=0; i < 16; i++) {
-      if (i == 1) {
+      switch (i) {
+      case 1:
         this.maps[i] = Skull;
-      } else if (i == 2) {
+        break;
+
+      case 2:
         this.maps[i] = Eyes;
-      } else if (i == 3) {
+        break;
+        
+      case 3:
         this.maps[i] = Waves;
-      } else {
+        break;
+
+      case 4:
+        this.maps[i] = Text;
+        break;
+      
+      case 5:
+        this.maps[i] = Starry;
+        break;
+
+      case 6:
+        this.maps[i] = Merces;
+        break;
+      
+      default:
         this.maps[i] = Zine;
       }
     }
