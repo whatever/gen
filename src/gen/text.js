@@ -47,4 +47,8 @@ export class Text {
             this.ctx.fillText(line, 0, (50+10)*(i+1));
         });
     }
+
+    toDataURL() {
+        return this.el.toDataURL("image/jpg");
+    }
 }

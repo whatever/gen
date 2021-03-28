@@ -1,12 +1,14 @@
-import {basic3} from "../basics.js";
+import {Basic3, basic3} from "../basics.js";
 
 /**
  * Skull
  *
  * Renders some skulls on the screen.
  */
-export class Skull {
+export class Skull extends Basic3 {
   constructor({el, page, font}) {
+    super(...arguments);
+
     this.el = el;
     this.font = font;
     this.page = page;

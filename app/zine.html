@@ -166,47 +166,23 @@
 
     function preview(seed) {
       var loader = new THREE.FontLoader();
+      var composition = null;
       loader.load("helvetiker.json", function (font) {
         var els = Array.from(document.getElementsByClassName("page"));
-        var composition = new svv.ZineComposition({elements: els, font: font});
+        composition = new svv.ZineComposition({elements: els, font: font});
         composition.setup();
         composition.update();
         composition.draw();
       });
-    }
 
-    window.addEventListener('load2', function (ev) {
-
-      var els = document.getElementsByClassName("page");
-      var zines = [];
-
-      Array.from(els).forEach(function (el, i) {
-        var seed = 91029341;
-        var zine = new svv.Zine({el: el, page: i+1, seed: seed});
-        zine.setup();
-
-        el.addEventListener("click", function (ev) {
-          window.location.href = el.toDataURL();
-        });
-
-        zines.push(zine);
-      });
-
-      (function loloop() {
-        zines.forEach(function (zine) {
-          zine.update();
-          zine.draw();
-        });
-        requestAnimationFrame(loloop);
-      }());
 
       document.getElementById("generator").addEventListener("click", function (ev) {
-        var form = document.getElementById("poster");
+        var form = document.createElement("FORM");
         form.innerHTML = "";
         form.action = "http://localhost:8081/pdf";
         form.method = "post";
 
-        zines.forEach(function (zine, i) {
+        composition.apps.forEach(function (zine, i) {
           var el = document.createElement("INPUT");
           el.type = "hidden";
           el.name = "page-" + (i+1);
@@ -214,36 +190,10 @@
           form.appendChild(el);
         });
 
+        document.body.appendChild(form);
         form.submit();
       });
-
-
-      // var params = datGui();
-      
-      /*
-      app.setup();
-      app.update(params);
-      app.draw();
-
-      var stats = new Stats();
-      document.getElementById("stats").appendChild(stats.dom);
-
-      (function loloop() {
-        requestAnimationFrame(loloop);
-        stats.begin();
-        app.update(params);
-        app.draw();
-        stats.end();
-      }());
-
-
-      (function cant_stop_wont_stop() {
-        let handles = app.eventHandlers();
-        window.addEventListener('resize', handles.resize);
-        window.addEventListener('mousemove', handles.move);
-      }());
-      */
-    });
+    }
 
     function update() {
     }
