@@ -63,4 +63,8 @@ export class Eyes {
 
         this.ctx.restore();
     }
+
+    toDataURL() {
+        return this.el.toDataURL("image/png");
+    }
 }

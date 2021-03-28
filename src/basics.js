@@ -20,6 +20,7 @@ export class Basic3 {
   constructor({el}) {
     [this.ctx, this.renderer] = basic3(el);
     this.renderer.setClearColor("#FFFFFF");
+    this.el = el;
     this.scene = new THREE.Scene();
     this.camera = new THREE.PerspectiveCamera(
       75,
@@ -39,5 +40,9 @@ export class Basic3 {
 
   draw() {
     this.renderer.render(this.scene, this.camera);
+  }
+
+  toDataURL() {
+    return this.el.toDataURL('image/png');
   }
 }

@@ -1,4 +1,4 @@
-import {basic3} from "../basics.js";
+import {Basic3, basic3} from "../basics.js";
 
 import vert from "../shaders/pass.vert";
 import frag from "../shaders/pass.frag";
@@ -8,8 +8,10 @@ import frag from "../shaders/pass.frag";
  *
  * XXX: There will obviously be some kinda wave/refraction thing at some point.
  */
-export class Waves {
+export class Waves extends Basic3 {
   constructor({el}) {
+    super(...arguments);
+
     [this.ctx, this.renderer] = basic3(el);
 
     this.scene = new THREE.Scene();
