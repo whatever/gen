@@ -33,18 +33,14 @@ export class Text {
     }
 
     draw() {
-        let lines = [
-            "okay",
-            "This is a long",
-            "string with stuff",
-            "we can keep",
-            "talking nbd",
-        ];
         this.clear();
         this.ctx.fillStyle = "black";
-        this.ctx.font = "50px sans-serif";
+        this.ctx.font = "30px sans-serif";
+        this.ctx.fillText("for eames", 0+20, this.el.height-20);
+        return;
+
+        let lines = ["for eames"];
         lines.forEach((line, i) => {
-            this.ctx.fillText(line, 0, (50+10)*(i+1));
         });
     }
 
