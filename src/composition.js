@@ -5,6 +5,7 @@ import {Eyes} from "./gen/eyes.js";
 import {Text} from "./gen/text.js";
 import {Starry} from "./gen/starry.js";
 import {Merces} from "./gen/merces.js";
+import {JohnnyCash} from "./gen/johnnycash.js";
 
 /**
  * ZineComposition
@@ -46,10 +47,14 @@ export class ZineComposition {
         break;
       
       case 5:
-        this.maps[i] = Starry;
+        this.maps[i] = JohnnyCash;
         break;
 
       case 6:
+        this.maps[i] = Starry;
+        break;
+
+      case 7:
         this.maps[i] = Merces;
         break;
       
