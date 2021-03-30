@@ -79,6 +79,8 @@
 
     <!-- what's the difference between you and me? -->
     <script src="/three.min.js"></script>
+    <script src="/OBJLoader.js"></script>
+
     <script src="/dat.gui.min.js"></script>
     <script src="/stats.min.js"></script>
     <script src="/svv.im.bundled.min.js"></script>
@@ -171,8 +173,13 @@
         var els = Array.from(document.getElementsByClassName("page"));
         composition = new svv.ZineComposition({elements: els, font: font});
         composition.setup();
-        composition.update();
-        composition.draw();
+
+        setTimeout(function () {
+          console.log("started drawing");
+          composition.update();
+          composition.draw();
+          console.log("finshed drawing");
+        }, 300);
       });
 
 
@@ -194,10 +201,6 @@
         form.submit();
       });
     }
-
-    function update() {
-    }
-
     </script>
   </body>
 </html>
