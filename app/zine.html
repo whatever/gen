@@ -173,13 +173,8 @@
         var els = Array.from(document.getElementsByClassName("page"));
         composition = new svv.ZineComposition({elements: els, font: font});
         composition.setup();
-
-        setTimeout(function () {
-          console.log("started drawing");
-          composition.update();
-          composition.draw();
-          console.log("finshed drawing");
-        }, 300);
+        composition.update();
+        composition.draw();
       });
 
 

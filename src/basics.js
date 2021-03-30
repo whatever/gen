@@ -46,3 +46,15 @@ export class Basic3 {
     return this.el.toDataURL('image/png');
   }
 }
+
+// Modify a mesh to have normalized, shaded faces
+function fixup(mesh) {
+    mesh.traverse(function (child) {
+        if (child instanceof THREE.Mesh) {
+            child.material = new THREE.MeshBasicMaterial({ color: 0xff6600 });
+            child.geometry.computeFaceNormals();
+            child.geometry.computeVertexNormals();
+            child.material.shading = THREE.SmoothShading;
+        }
+    });
+}

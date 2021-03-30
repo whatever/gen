@@ -35,7 +35,7 @@ export class ZineComposition {
         break;
 
       case 2:
-        this.maps[i] = Eyes;
+        this.maps[i] = Text;
         break;
         
       case 3:
@@ -43,7 +43,7 @@ export class ZineComposition {
         break;
 
       case 4:
-        this.maps[i] = Text;
+        this.maps[i] = Eyes;
         break;
       
       case 5:
