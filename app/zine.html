@@ -179,10 +179,20 @@
 
 
       document.getElementById("generator").addEventListener("click", function (ev) {
+              console.log("!!!");
         var form = document.createElement("FORM");
         form.innerHTML = "";
         form.action = "http://localhost:8081/pdf";
         form.method = "post";
+
+        var instructions = document.getElementById("folding");
+        console.log(instructions.checked);
+
+        let ins = document.createElement("INPUT");
+        ins.type = "hidden";
+        ins.name = "folding";
+        ins.value = "1";
+        form.appendChild(ins);
 
         composition.apps.forEach(function (zine, i) {
           var el = document.createElement("INPUT");
@@ -194,6 +204,7 @@
 
         document.body.appendChild(form);
         form.submit();
+        document.body.removeChild(form);
       });
     }
     </script>
