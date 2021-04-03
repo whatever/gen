@@ -13,7 +13,7 @@ module.exports = {
     rules: [
       {
         test: /\.(frag|vert)?$/,
-        loader: 'webpack-glsl-loader',
+        loader: 'raw-loader',
       },
       {
         test: /\.js$/,

@@ -36,7 +36,7 @@ export class Text {
         this.clear();
         this.ctx.fillStyle = "black";
         this.ctx.font = "30px sans-serif";
-        this.ctx.fillText("for eames", 0+20, this.el.height-20);
+        this.ctx.fillText("for </3", 0+20, this.el.height-20);
         return;
 
         let lines = ["for eames"];

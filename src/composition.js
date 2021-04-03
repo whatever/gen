@@ -6,6 +6,7 @@ import {Text} from "./gen/text.js";
 import {Starry} from "./gen/starry.js";
 import {Merces} from "./gen/merces.js";
 import {JohnnyCash} from "./gen/johnnycash.js";
+import {Graveyard} from "./gen/grave.js";
 
 /**
  * ZineComposition
@@ -56,6 +57,10 @@ export class ZineComposition {
 
       case 7:
         this.maps[i] = Merces;
+        break;
+
+      case 8:
+        this.maps[i] = Graveyard;
         break;
       
       default:
