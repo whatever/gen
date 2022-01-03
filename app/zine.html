@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>(wip.af) i'm not really thinking about it</title>
+    <title>(wip.af) i'm not really thinking about it // (can't establish a connection)</title>
     <style>
 
     html, body {
@@ -78,9 +78,6 @@
     </style>
 
     <!-- what's the difference between you and me? -->
-    <script src="/three.min.js"></script>
-    <script src="/OBJLoader.js"></script>
-
     <script src="/dat.gui.min.js"></script>
     <script src="/stats.min.js"></script>
     <script src="/svv.im.bundled.min.js"></script>
@@ -167,15 +164,11 @@
     });
 
     function preview(seed) {
-      var loader = new THREE.FontLoader();
-      var composition = null;
-      loader.load("helvetiker.json", function (font) {
         var els = Array.from(document.getElementsByClassName("page"));
-        composition = new svv.ZineComposition({elements: els, font: font});
+        composition = new svv.ZineComposition({elements: els, font: undefined});
         composition.setup();
         composition.update();
         composition.draw();
-      });
 
 
       document.getElementById("generator").addEventListener("click", function (ev) {

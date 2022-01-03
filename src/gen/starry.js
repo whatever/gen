@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 import {Basic3} from "../basics.js";
 
 function text(ctx, lines) {

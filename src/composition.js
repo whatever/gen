@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 import {Zine} from "./gen/zine.js";
 import {Skull} from "./gen/skull.js";
 import {Waves} from "./gen/waves.js";

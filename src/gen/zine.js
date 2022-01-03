@@ -1,3 +1,7 @@
+import * as THREE from "three";
+
+import {TextGeometry} from "three/examples/jsm/geometries/TextGeometry.js";
+
 import {basic3} from "../basics.js";
 export class Zine {
 
@@ -19,7 +23,8 @@ export class Zine {
   }
 
   setup() {
-    let geo = new THREE.TextGeometry("page = " + this.page, {
+    /*
+    let geo = new TextGeometry("page = " + this.page, {
       font: this.font,
       size: 1,
       height: 0.001,
@@ -30,6 +35,7 @@ export class Zine {
     this.meshage = new THREE.Mesh(geo, mat);
     this.meshage.position.set(0, -4, 0);
     this.scene.add(this.meshage);
+    */
 
     this.mesh = new THREE.Mesh(
       new THREE.OctahedronGeometry(3.0),

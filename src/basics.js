@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 // Return context, scene, renderer
 export function basic3(el) {
   let ctx = el.getContext("webgl", {preserveDrawingBuffer: true});

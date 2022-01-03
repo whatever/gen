@@ -1,3 +1,5 @@
+import * as THREE from "three";
+
 import {Basic3, basic3} from "../basics.js";
 
 /**

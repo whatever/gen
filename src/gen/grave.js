@@ -1,6 +1,7 @@
+import * as THREE from "three";
+
 import {Basic3} from '../basics.js';
 
-import {GrassyField} from '@pool-water/objs';
 import {Land} from  '@pool-water/objs';
 
 import SimplexNoise from 'simplex-noise';
@@ -84,7 +85,6 @@ export class Graveyard extends Basic3 {
 
     // ...
     let start = getElapsedTime();
-    this.addGrassyField();
     console.log("Create grassy field time:", getElapsedTime()-start);
 
     this.force = new THREE.Vector3(0, 0, 1);
@@ -96,30 +96,6 @@ export class Graveyard extends Basic3 {
   setupTrack() {
     this.camera.position.set(0, 30, 80);
     this.camera.lookAt(new THREE.Vector3(0, 0, 0));
-  }
-
-  // ...
-  addGrassyField() {
-
-    this.field = new GrassyField(
-        30,
-        30,
-        61.0,
-        30,
-        this.floor.f,
-    );
-
-    this.grassMaterial = new THREE.MeshPhongMaterial({
-      color: 0x84a349,
-      specular: 0x37a4b3,
-    });
-
-    this.fieldMesh = new THREE.Mesh(
-      this.field.geometry(),
-      this.grassMaterial,
-    );
-
-    this.scene.add(this.fieldMesh);
   }
 
   // ...
