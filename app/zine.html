@@ -34,6 +34,14 @@
       text-shadow: 1px 0px 0px rgba(0, 0, 0, 1);
     }
 
+    .blank-page {
+      width: 396px;
+      height: 612px;
+      display: inline-box;
+      border: solid 0px black;
+      clear: none;
+    }
+
     #dont-touch-me {
       position: absolute;
       display: block;
@@ -42,6 +50,7 @@
       z-index: -1;
     }
     #best {
+      user-select: none;
       z-index:10;
       position: fixed;
       color: black;
@@ -100,6 +109,8 @@
     <br>
 
     <h1>Preview</h1>
+
+    <canvas width="396" height="612" class="blank-page"></canvas>
     <canvas width="396" height="612" class="page"></canvas>
     <canvas width="396" height="612" class="page"></canvas>
     <canvas width="396" height="612" class="page"></canvas>
@@ -116,6 +127,9 @@
     <canvas width="396" height="612" class="page"></canvas>
     <canvas width="396" height="612" class="page"></canvas>
     <canvas width="396" height="612" class="page"></canvas>
+    <canvas width="396" height="612" class="blank-page"></canvas>
+
+    <!-- 0xFADED1 -->
 
     <script>
 

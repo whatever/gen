@@ -10,6 +10,17 @@ import {Merces} from "./gen/merces.js";
 import {JohnnyCash} from "./gen/johnnycash.js";
 import {Graveyard} from "./gen/grave.js";
 
+const PageComposition = new Map([
+  [1, Skull],
+  [2, Text],
+  [3, Waves],
+  [4, Eyes],
+  [5, JohnnyCash],
+  [6, Starry],
+  [7, Merces],
+  [8, Graveyard],
+]);
+
 /**
  * ZineComposition
  *
@@ -32,42 +43,7 @@ export class ZineComposition {
     this.maps = [];
 
     for (var i=0; i < 16; i++) {
-      switch (i) {
-      case 1:
-        this.maps[i] = Skull;
-        break;
-
-      case 2:
-        this.maps[i] = Text;
-        break;
-        
-      case 3:
-        this.maps[i] = Waves;
-        break;
-
-      case 4:
-        this.maps[i] = Eyes;
-        break;
-      
-      case 5:
-        this.maps[i] = JohnnyCash;
-        break;
-
-      case 6:
-        this.maps[i] = Starry;
-        break;
-
-      case 7:
-        this.maps[i] = Merces;
-        break;
-
-      case 8:
-        this.maps[i] = Graveyard;
-        break;
-      
-      default:
-        this.maps[i] = Zine;
-      }
+      this.maps[i] = PageComposition.has(i) ? PageComposition.get(i) : Zine;
     }
 
     this.apps = [];
