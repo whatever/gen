@@ -30,6 +30,8 @@ function hitek(lines, width, height) {
     let s = 8;
     canvas.width = s*w;
     canvas.height = s*h;
+    canvas.style.width = w;
+    canvas.style.height = h;
 
 
     let ctx = canvas.getContext("2d");
@@ -40,46 +42,47 @@ function hitek(lines, width, height) {
 }
 
 export class Starry extends Basic3 {
-    constructor({el}) {
-        super(...arguments);
-        this.el = el;
-        this.renderer.setClearColor("#CCC");
-    }
+  constructor({el}) {
+    super(...arguments);
+    this.el = el;
+    this.renderer.setClearColor("#CCC");
+    this.renderer.setPixelRatio(2);
+  }
 
-    setup() {
-        let ratio = this.el.height/this.el.width;
-        let w = 256;
-        let h = w * ratio;
+  setup() {
+    let ratio = this.el.height/this.el.width;
+    let w = 256;
+    let h = w * ratio;
 
-        this.texture = hitek([
-            "all thug",
-            "still tipsy",
-            "anytime that we get here",
-            "we don't have to rush when",
-            "",
-            "//",
-            "",
-            "you said,",
-            "\"What have I got to lose?\"",
-        ], w, h);
+    this.texture = hitek([
+      "all thug",
+      "still tipsy",
+      "anytime that we get here",
+      "we don't have to rush when",
+      "",
+      "//",
+      "",
+      "you said,",
+      "\"What have I got to lose?\"",
+    ], w, h);
 
-        const tex = new THREE.CanvasTexture(this.texture.canvas);
+    const tex = new THREE.CanvasTexture(this.texture.canvas);
 
-        const d = 5;
-        this.mesh = new THREE.Mesh(
-            new THREE.PlaneGeometry(d, d*ratio, 16),
-            new THREE.MeshBasicMaterial({map: tex}),
-        );
+    const d = 5;
+    this.mesh = new THREE.Mesh(
+      new THREE.PlaneGeometry(d, d*ratio, 16),
+      new THREE.MeshBasicMaterial({map: tex}),
+    );
 
-        this.scene.add(this.mesh);
-    }
-    
-    update() {
-        this.camera.position.set(0, 0, 6);
-        this.camera.lookAt(0, 0, 0);
+    this.scene.add(this.mesh);
+  }
 
-        this.mesh.position.x = 0;
-        this.mesh.position.y = 0;
-        this.mesh.position.z = 0;
-    }
+  update() {
+    this.camera.position.set(0, 0, 6);
+    this.camera.lookAt(0, 0, 0);
+
+    this.mesh.position.x = 0;
+    this.mesh.position.y = 0;
+    this.mesh.position.z = 0;
+  }
 }

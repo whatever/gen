@@ -19,7 +19,7 @@ export class JohnnyCash extends Basic3 {
 
     let self = this;
 
-    return;
+    /*
 
     loader.load("skull.obj", (mesh) => {
 
@@ -59,6 +59,7 @@ export class JohnnyCash extends Basic3 {
     point.position.set(5, 5, 5);
     point.lookAt(0, 0, 0);
     this.scene.add(point);
+    */
   }
 
   update() {
