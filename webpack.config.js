@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const path = require("path");
 
 module.exports = {
   context: __dirname + "/src",
@@ -23,7 +24,10 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['*', '.js'],
+    alias: {
+      three: path.resolve('./node_modules/three')   // <----- Addition
+    },
+    extensions: ['.ts', '.js']
   },
   externals: {
     "THREE": "THREE",

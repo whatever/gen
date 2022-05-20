@@ -27,7 +27,6 @@
     "@babel/core": "^7.2.2",
     "@babel/preset-env": "^7.1.6",
     "@babel/register": "^7.0.0",
-    "@pool-water/math": "file:../math",
     "@pool-water/objs": "file:../../pool-water/objs",
     "babel-loader": "^8.0.4",
     "raw-loader": "^4.0.2",
@@ -36,9 +35,8 @@
     "webpack-dev-server": "^4.3.1"
   },
   "dependencies": {
-    "@whatever420/skv": "0.0.420",
     "npm": "^6.4.0",
-    "three": "^0.135.0",
-    "simplex-noise": "^2.4.0"
+    "simplex-noise": "^2.4.0",
+    "three": "0.140.2"
   }
 }
